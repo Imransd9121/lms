@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Course</title>
+    <style>
+       body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://www.litmos.com/wp-content/uploads/2020/10/custom-branding-lms.png');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        select, input[type="text"], textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            transition: border-color 0.3s ease; /* Smooth transition for border color */
+        }
+
+        select:focus, input[type="text"]:focus, textarea:focus {
+            outline: none;
+            border-color: #007bff; /* Blue border color when focused */
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Smooth transition for background color */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3; /* Darker blue color on hover */
+        }
+
+        .image-container {
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    {% for message in messages %}
+        <center><b>{{ message }}</b></center>
+    {% endfor %}
+{% endif %}
+{% endwith %}
+<body>
+    <div class="container">
+        <h1>Update Course</h1>
+     
+        <form action="#" method="POST" enctype="multipart/form-data">
+           
+            <label for="title">Title:{{ i[1] }}</label>
+            <select name="title" id="title" value="i[1]">
+                <option value="Python">Python</option>
+                <option value="Java">Java</option>
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="Design">Design</option>
+                <option value="JavaScript">JavaScript</option>
+            </select>
+            <label for="sub_topic">Sub Topic:</label>
+            <input type="text" id="sub_topic" name="sub_topic" value="{{i[2]}}">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4" cols="50" value="{{i[3]}}" placeholder="{{i[3]}}"></textarea>
+            <label for="prerequisites">Prerequisites:</label>
+            <input type="text" id="prerequisites" name="prerequisites" value="{{i[4]}}">
+            <label for="level">Level:{{i[5]}}</label>
+            <select name="level" id="level">
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+            </select>
+            <div class="form-group">
+                <label for="video_duration">Video Duration: {{i[13]}}</label>
+                <input type="time" id="video_duration" name="video_duration" pattern="[0-9]{2}:[0-9]{2}" value="{{i[13]}}">
+            </div>
+            
+    
+            <button type="submit" style="background-color: rgb(73, 168, 73); border: none; cursor: pointer; height: 30px; width: 70px; border-radius: 5px;">SUBMIT</button>
+        </form>
+       
+    </div>
+    <script>
+        // Assuming {{i[6]}} contains the file path like "static/uploads\\resume_nagu1.pdf"
+        const filePath = "{{i[6]}}"; // Replace "{{i[6]}}" with the actual variable containing the file path
+    
+        // Extract the filename from the file path
+        const filename = filePath.split('\\').pop().split('/').pop(); // Extracts the filename from the path
+    
+        // Display the filename in the span element
+        document.getElementById('uploadedBrochure').textContent = filename;
+    </script>
+</body>
+</html>

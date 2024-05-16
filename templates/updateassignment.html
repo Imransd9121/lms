@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Assignment</title>
+    <style>
+        /* Styles for responsiveness */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group select,
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-group .btn {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-group .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+        {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <div class="container">
+        <a href="{{url_for('trainer_dashboard')}}"><button>GO BACK</button></a>
+        <h2>Update Assignment</h2>
+
+        <form action="#" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="title">Title:{{d[1]}}</label>
+                <select name="title" id="title"  value="{{d[1]}}">
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="HTML">HTML</option>
+                    <option value="CSS">CSS</option>
+                    <option value="Design">Design</option>
+                    <option value="JavaScript">JavaScript</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea name="description" id="description" rows="4" cols="80">{{d[2]}}</textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="deadline">Deadline: {{d[3]}}</label>
+                <input type="date" name="deadline" id="deadline"  value="{{d[3]}}" >
+            </div>
+         
+            <div class="form-group">
+                <button type="submit" class="btn">submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

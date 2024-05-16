@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Fees</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        select, input[type="number"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+        {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+        <div class="container">
+            <a href="{{url_for('admindashboard')}}"><button style="color: white; background-color: black;border-radius: 5px;">GO BACK</button></a>
+            <h2>Uploaded Fees</h2>
+            <table>
+                <tr>
+                    <th>Fee ID</th>
+                    <th>Course Title</th>
+                    <!-- <th>Student Name</th> -->
+                    <th>Fee Amount</th>
+                    <!-- <th>Status</th> -->
+                    <!-- <th>Payment Date</th> -->
+                </tr>
+                {% for fee in f %}
+                <tr>
+                    <td>{{ fee[0] }}</td>
+                    <td>{{ fee[1] }}</td>
+                    <td>{{ fee[2] }}</td>
+                    <td>{{ fee[3] }}</td>
+                    <td>{{ fee[4] }}</td>
+                    <td>{{ fee[5] }}</td>
+               
+                </tr>
+                {% endfor %}
+            </table>
+            <h2>Upload Fees data</h2>
+            <form method="POST" action="{{ url_for('a_fee') }}">
+                <label for="course">Select Course Title:</label>
+                <select id="course" name="title">
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="HTML">HTML</option>
+                    <option value="CSS">CSS</option>
+                    <option value="Figma">Design</option>
+                    <option value="javascript">JavaScript</option>
+                </select>
+                <br><br>
+                <label for="amount">Fee Amount:</label>
+                <input type="number" id="amount" name="amount" step="0.01" min="0" required>
+                <br><br>
+                <button type="submit" style="background-color: rgb(92, 219, 92); border: none; border-radius: 5px; height: 30px; width: 70px;cursor: pointer;">SUBMIT</button>
+            </form>
+            <a href="{{url_for('updatefees')}}" class="btn btn-primary" style="text-decoration: none;margin-top: 50px;"> <button style="color: black;margin-top: 20px; height: 30px; width: 100px;
+            background-color: rgb(96, 96, 199); border: none; border-radius: 5px;">update fess</button></a>
+        </div>
+    </body>
+    </html>

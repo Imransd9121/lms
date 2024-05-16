@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Fees</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        select, input[type="number"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+        {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+        <div class="container">
+            
+            <h2>Update Fees data</h2>
+            <a href="{{url_for('admindashboard')}}"><button style="color: white; background-color: black;margin-bottom: 20px; height: 30px; width: 90px; border-radius: 5px; cursor: pointer;">GO BACK</button></a>
+            <form method="POST" action="#">
+                <label for="course">Select Course Title:</label>
+                <select id="course" name="title">
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="HTML">HTML</option>
+                    <option value="CSS">CSS</option>
+                    <option value="Figma">Figma</option>
+                    <option value="JavaScript">JavaScript</option>
+                </select>
+                <br><br>
+                <label for="amount">Fee Amount:</label>
+                <input type="number" id="amount" name="amount" step="0.01" min="0" required>
+                <br><br>
+                <button type="submit" style="color: black;background-color: rgb(92, 219, 92); height: 30px; width: 70px; border: none; border-radius: 5px;cursor: pointer;">SUBMIT</button>
+            </form>
+        </div>
+    </body>
+    </html>

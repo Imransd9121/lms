@@ -1,0 +1,92 @@
+/* Reset default margin and padding */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: #333;
+    z-index: 1000;
+}
+
+/* Container for the navbar */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style the navbar items */
+.navbar-nav {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.navbar-nav li {
+    margin-right: 20px;
+}
+
+.navbar-nav li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    font-size: 18px; /* Increase font size for navbar items */
+}
+
+.navbar-nav li a:hover {
+    color: #ff6600; /* Change color on hover */
+}
+
+/* Style the flash message */
+.flash-message {
+    background-color: #f0f0f0;
+    padding: 10px;
+}
+
+.flash p {
+    margin: 0;
+    font-size: 16px; /* Increase font size for flash messages */
+}
+
+/* Style the content area */
+.content {
+    padding: 20px;
+    font-size: 20px; /* Increase font size for content area */
+}
+
+/* Background image */
+body {
+    background-image: url('https://i.pinimg.com/736x/5f/68/24/5f682422c49e903e6ed1acd500050dd7.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-position: center; */
+}
+/* Style for dropdown */
+.dropdown select {
+    display: none; /* Hide the original select element */
+}
+.dropdown:hover select {
+    display: block; /* Display the select element when hovering over the dropdown */
+}
+
+/* Style for options */
+.dropdown select option {
+    background-color: #f8f9fa; /* Background color for options */
+    color: #212529; /* Text color for options */
+    padding: 8px 12px; /* Padding for options */
+}
+
+/* Style for selected option */
+.dropdown select option:checked {
+    background-color: #007bff; /* Background color for selected option */
+    color: #fff; /* Text color for selected option */
+}
+

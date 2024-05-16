@@ -1,0 +1,354 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trainer Login</title>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+        {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <form method="POST">
+        <label for="fullname">User Name</label>
+        <input type="text" id="fullname" name="username" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">submit</button>
+        
+    </form>
+    <a href="">forgot password</a>
+    <a href="">registration</a>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- <link rel="stylesheet" href="trainer.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'montserrat', sans-serif;
+}
+
+body{
+    background-color: #c9d6ff;
+    background: linear-gradient(to right, #e2e2e2,#c9d6ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+.container1{
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.35);
+    position: relative;
+    overflow: hidden;
+    width: 800px;
+    max-width: 100%;
+    height: 550px;
+}
+.container1 p{
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+    margin: 20px 0;
+}
+.container1 span{
+    font-size: 12px;
+    padding: 10px;
+}
+.container1 a{
+    color: #333;
+    font-size: 13px;
+    text-decoration: none;
+    margin: 15px 0 10px;
+}
+.container1 button{
+    background-color:rgb(245, 121, 121);
+    color: #fff;
+    font-size: 12px;
+    padding: 10px 45px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing:0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    cursor: pointer;
+}
+/* .container1 button:hover{
+    background-color: #000000;
+} */
+.container1 button.hidden{
+    background-color: transparent;
+    border-color: #fff;
+}
+.container1 form{
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+}
+.container1 input{
+    background-color: #eee;
+    border: none;
+    margin: 8px 0;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+    height: 38px;
+}
+#email_error , #password_error, #user_error, #code_error{
+    margin-top: 1px;
+    margin-bottom: 8px;
+    width: 300px;
+    font-size: 13px;
+    color: #c62828;
+    background: rgba(255,0,0,0.1);
+    height: 23px;
+    text-align: center;
+    padding: 4px 8px;
+    border-radius: 3px;
+    border: 1px solid #EF9A9A;
+    display: none;
+}
+.form-container{
+    position: absolute;
+    top:0;
+    height: 100%;
+    /* transition: all 0.6s ease-in-out; */
+}
+.sign-in{
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+/* .container.active .sign-in{
+    transform: translateX(100%);
+} */
+/* .sign-up{
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+
+}
+.container.active .sign-up{
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: move 0.5s; */
+
+/* } */
+/* @keyframes move{
+    0% ,49.99%{
+        opacity: 0;
+        z-index: 1;
+    }
+    50%,100%{
+        opacity: 0;
+        z-index: 5;
+
+    }
+} */
+.social-icons a{
+    border: 1px solid #ccc;
+    border-radius: 20%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 3px;
+    width: 40px;
+    height: 40px;
+}
+.toggle-container{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transform: all 0.6s ease-in-out;
+    border-radius: 150px 0 0 100px;
+    /* z-index: 1000; */
+
+}
+/* .container.active .toggle-container{  */
+    /* transform: translateX(-100%); */
+    /* border-radius: 0 150px 100px 0; */
+/* } */
+.toggle{
+    background-color:rgb(245, 121, 121);
+    height: 100%;
+    /* background: linear-gradient(to tight, #5c6bc0, #512da8,); */
+    color: #fff;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transition:1.5s ease-in-out;
+    /* transform: translateX(0); */
+    /* transition: all 0.6s ease-in-out; */
+}
+.toggle:hover{
+    background-color: #74b5f1;
+}
+/* .container.active .toggle{ */
+    /* transform: translateX(50%); */
+/* } */
+.toggle-panel{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 30px;
+    text-align: center;
+    top: 0;
+    /* transform: translateX(0); */
+    /* transition: all 0.6s ease-in-out; */
+}
+
+.toggle-left{
+    right: 0;
+    
+}
+#message{
+    margin: 0;
+    margin-right:40%;
+    color: #000000;
+} 
+
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+  
+  {% for message in messages %}
+    <center><p>{{ message }}</p></center>
+  {% endfor %}
+  
+{% endif %}
+{% endwith %}
+<body>
+    <div class="container1">
+       <div class="container">
+        <div class="row">
+            <div class="col-12">
+                
+         <div class="form-container sign-in">
+            <form class="login_form" method="post" name="form" action="" onsubmit="return validated()">
+               <h1 style="margin-bottom: 70px;">Sign In</h1>
+               <div class="social-icons">
+                <!-- <a href="mailto:9121imran@gmail.com" class="icon" target="_blank"><i class="fa-brands fa-google-plus-g"></i></a>
+                <a href="https://www.instagram.com/call_me_racer_43" class="icon" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="tel:+919121461636" class="icon" target="_blank"><i class="fa-solid fa-phone"></i></a> -->
+                <!-- <a href="#" class="icon" target="_blank"><i class="fa-brands fa-linkedin"></i></a> -->
+               </div>
+               <!-- <span>or use your email password</span> -->
+               <input autocomplete="off" type="text" placeholder="user name" name="username" >
+               <div id="email_error">Please fill up your username</div>
+               <input type="password" placeholder="password" name="password" >
+               <div id="password_error">Please fill up your Password</div>
+               <a href="{{url_for('forgotf')}}">Forgot Your Password?</a>
+              <a href="#"><button>Sign In</button></a>
+            </form>
+        </div>
+        
+    </div>
+</div>
+</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                
+        <div class="toggle-container">
+            <div class="toggle">
+                
+                <div class="toggle-panel toggle-left">
+                    <h1>Hello, Trainer!</h1>
+                    <p>Register with your personal details to use all of site features</p>
+                   <a href="{{url_for('tregistration')}}"> <button class="hidden" id="register">Sign Up</button></a>
+                </div>
+
+        </div>
+    </div>
+    
+</div>
+</div>
+</div>
+    </div>
+    <!-- <script src="trainer_sign_in.js"> -->
+        
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        var email=document.forms['form']['email'];
+var password=document.forms['form']['password'];
+
+
+var email_error=document.getElementById('email_error');
+var password_error=document.getElementById('password_error');
+
+email.addEventListener('textInput', email_Verify);
+password.addEventListener('textInput', password_Verify);
+
+function validated(){
+  if (email.value.length <11){
+    email.style.border ="1px solid red";
+    email_error.style.display="block";
+    // email.focus();
+    return false;
+  }
+if (password.value.length <6){
+    password.style.border ="1px solid green";
+    password_error.style.display="block";
+    // password.focus();
+    return false;
+  }
+ 
+}
+
+function email_Verify(){
+    if (email.value.length >=9){
+        email.style.border="1px solid green";
+        email_error.style.display="none";
+        return false; 
+    }
+}
+function password_Verify(){
+    if (password.value.length >=6){
+        password.style.border="1px solid greem";
+        password_error.style.display="none";
+        return false; 
+    }
+    
+}
+
+    </script>
+</body>
+</html>

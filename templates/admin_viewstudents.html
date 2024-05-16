@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Student Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+</head>
+<body style="background-color: rgb(155, 186, 190);">
+    <a href="{{url_for('admindashboard')}}" style="text-decoration: none;"><button style="background-color: black; color: white; border-radius: 5px; cursor: pointer;">GO BACK</button></a>
+    <h1 style="margin-top: 20px; text-align: center;">Students Data</h1>
+    <!-- <div style="overflow-x:auto;">
+        <table> -->
+            <div class="table-responsive" style="margin-top: 20px;">
+                <table class="table table-bordered">   
+            <thead style="margin-top: 10px;">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <!-- <th>Gender</th> -->
+                    <th>Payment_id</th>
+                    <!-- <th>payment_time</th> -->
+                    <th>status</th>
+                    <th>fid</th>
+                    <th>title</th>
+                    <th>amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if a %}
+                {% for i in a %}
+                <tr>
+                    <td>{{i[0]}}</td>
+                    <td>{{i[1]}}</td>
+                    <td>{{i[2]}}</td>
+                    <td>{{i[3]}}</td>
+                    <!-- <td>{{i[4]}}</td> -->
+                    <td>{{i[5]}}</td>
+                    <!-- <td>{{i[6]}}</td> -->
+                    <td>{{i[7]}}</td>
+                    <td>{{i[8]}}</td>
+                    <td>{{i[9]}}</td>
+                    <td>{{i[10]}}</td>
+                    
+                </tr>
+                {% endfor %}
+                {% else %}
+                <p>no students are there </p>
+                {% endif %}
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

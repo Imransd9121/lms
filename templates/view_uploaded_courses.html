@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Courses</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .course {
+            margin-bottom: 30px;
+        }
+
+        .course-details {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .video-container {
+            margin-bottom: 20px;
+        }
+
+        .video {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+        }
+
+        .action-links {
+            margin-top: 10px;
+        }
+
+        .action-links a {
+            display: inline-block;
+            margin-right: 10px;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-links a:hover {
+            background-color: #0056b3;
+        }
+
+        .flash-message {
+            padding: 10px;
+            background-color: #f0ad4e;
+            color: #fff;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="{{url_for('trainer_dashboard')}}"><button style="color: white; background-color: black; height: 30px; width: 90px;border-radius: 5px; cursor: pointer;">GO BACK</button></a>
+        <h1>View Courses</h1>
+
+        <!-- Flash Message -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="flash-message">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        <!-- Loop through each course and its associated videos -->
+        {% for course in c %}
+        <div class="course">
+            <div class="course-details">
+                <h2>Course Title: {{ course[1] }}</h2>
+                <p><strong>Sub Topic:</strong> {{ course[2] }}</p>
+                <p><strong>Description:</strong> {{ course[3] }}</p>
+                <p><strong>Prerequisites:</strong> {{ course[4] }}</p>
+                <p><strong>Level:</strong> {{ course[5] }}</p>
+            </div>
+
+            <!-- Display videos for the current course -->
+            <div class="video-container">
+                <h3>Videos</h3>
+                {{course[8]}}
+                <video class="video" controls>
+                    <source src="{{ url_for('static',filename=course[8]) }}" type="video/mp4">
+                </video>
+                <p><strong>Video Duration:</strong> {{ course[9] }}</p>
+                <p><strong>Uploaded Date:</strong> {{ course[10] }}</p>
+            </div>
+
+            <!-- Placeholder for PDF -->
+            <div class="pdf-container">
+                <!-- Placeholder for PDF files related to this course -->
+            </div>
+
+            <!-- Action Links -->
+            {% if session.get('trainer') %}
+            <div class="action-links">
+                <a href="{{url_for('updatecourse',cid = course[0])}}">Update</a>
+                <a href="{{url_for('deletecourse',cid = course[0])}}">Delete</a>
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

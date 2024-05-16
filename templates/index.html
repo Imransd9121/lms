@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS</title>
+    <link rel="stylesheet" href="static\home1.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+</head>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+  
+  {% for message in messages %}
+    <center><p>{{ message }}</p></center>
+  {% endfor %}
+  
+{% endif %}
+{% endwith %}
+<body>
+  
+    <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><span>LMS</span><br><p>Learning Management System</p> </a>
+         
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="#home">HOME</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link  " href="#services">SERVICES</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="#courses">COURSES</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="#categories" >CATEGORIES</a>
+              </li>
+              <li class="nav-item">
+                <!-- <a class="nav-link " href="#testimonials" >TESEIMONIALS</a> -->
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link drop" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  REGISTER HERE
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="{{url_for('tregistration')}}"><button>Trainer</button></a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{{url_for('uregistration')}}"><button>User</button></a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <section class="sec1">
+       
+              <div class="banner">
+                <div class="banner-desc">
+                <h2>Start Learning With Our Expert, Anywhere, Anything</h2>
+                <p>In today's rapidly evolving educational landscape, Learning Management Systems (LMS) have emerged as indispensable tools for educators, trainers, and organizations seeking to deliver effective and efficient learning experiences. </p>
+                     
+                </div>
+            <div class="banner-img">
+                <div class="banner-img-container">
+                    <img src="https://png.pngtree.com/png-vector/20231213/ourmid/pngtree-character-glasses-boy-suit-occupation-3d-model-business-post-png-image_11327786.png" alt="">
+                  
+                    <div class="pattern">
+                        <img src="https://garden.spoonflower.com/c/13400739/p/f/m/dedVxcHf0I8_QJ7r9KRs40fagWVCIJkE123DLCx_sHIiywAH6fCQ/Moss%20Green%20.jpg" alt="">
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+            <!-- </div> -->
+          <!-- </div> -->
+        <!-- </div> -->
+      </section>
+      <!-- section1 ends -->
+      <!-- section 2 starts -->
+      <section class="services" id="services">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                 <header class="section-header">
+                  <h1>Why Choose Us</h1>
+                </header>
+                  <p>Our LMS offers an intuitive interface designed with the end user in mind. Navigating through courses, accessing resources, and tracking progress is seamless and user-friendly, ensuring an enjoyable learning experience for both educators and learners.</p>
+                
+                  <div class="services-contents">
+                    <div class="service-box">
+                      <div class="service-icon">
+                        <i class="fa-solid fa-calendar"></i>
+                      </div>
+                      <div class="service-desc">
+                        <h2>Flexible Timing</h2>
+                        <p>For students, flexible timing means they can engage with course materials and complete assignments according to their individual schedules. Whether they are juggling work, family responsibilities, or other commitments, having the flexibility to study at times that suit them best enhances their ability to learn effectively without feeling constrained by rigid timelines.</p>
+                      </div>
+                    </div>
+                    <div class="service-box">
+                      <div class="service-icon">
+                        <i class="fa-solid fa-users"></i>
+                      </div>
+                      <div class="service-desc">
+                        <h2>Expert Trainers</h2>
+                        <p>expert trainers play a pivotal role in the success of an LMS project by creating engaging content, facilitating meaningful learning experiences, and supporting learners throughout their educational journey. Their expertise, dedication, and commitment to excellence contribute to the effectiveness and impact of online learning initiatives.</p>
+                      </div>
+                    </div>
+
+                    <div class="service-box">
+                      <div class="service-icon">
+                        <i class="fa-solid fa-clock"></i>
+                      </div>
+                      <div class="service-desc">
+                        <h2>24/7 Live Support</h2>
+                        <p>In the event of critical incidents or system outages, live support agents are available to provide support and coordinate with technical teams to resolve issues and minimize disruption to users' learning experiences..</p>
+                      </div>
+                    </div>
+                  </div>        
+              </div>
+            </div>
+          </div>
+      </section>
+      <!-- services section 2 ends -->
+      <!-- course section starts -->
+      <section class="courses" id="courses">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <header class="section-header">
+                <div class="header-text">
+                  <h1>Choose Your Favourite Course</h1>
+                  <p>Our LMS boasts a rich catalog of courses spanning various disciplines, from business and technology to arts, humanities, and beyond.</p>
+                </div>
+                <!-- <button class="courses-btn btn">View All</button> -->
+              </header>
+            <div class="course-contents">
+              <div class="course-card">
+                <img src="https://blog.logrocket.com/wp-content/uploads/2023/06/creating-managing-styles-figma.png" alt="">
+                <div class="category">
+                  <div class="subject">
+                    <a href="{{ url_for('scourse', category='Design') }}"><h3>Design</h3></a>
+                    
+                  </div>
+                  <img src="https://img-c.udemycdn.com/course/750x422/1409030_6722_4.jpg" alt="">
+                </div>
+                <h2 class="course-title">Learn Figma:Enroll now and embark on a transformative journey towards becoming a professional digital designer!
+
+                </h2>
+                <!-- <div class="course-desc">
+                  <span><i class="fa-solid fa-video"></i>45 Videos</span>
+                  <span><i class="fa-solid fa-users"></i>2100+ Students</span>
+                </div> -->
+                <!-- <div class="course-ratings">
+                  <span>4.9<i class="fa-solid fa-star"></i></span>
+                  <span><b>$</b>120.00</span>
+
+                </div> -->
+              </div>
+
+              <div class="course-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJXdub1xRPoFYM7op8N-ylpIOYw5eeHszO04q0bg7e1FEVLm136t169XMSw-Ljbq4f17M&usqp=CAU" alt="">
+                <div class="category">
+                  <div class="subject">
+                    <a href="{{ url_for('scourse', category='HTML') }}"><h3>HTML</h3></a>
+                  </div>
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSczGzxRFm5N-ZczW1OjQnR2wnqKd1s6XMFLiZYpMjS9iCfNN-WkfpTAxICiL0BdXOkIA0&usqp=CAU" alt="">
+                </div>
+                <h2 class="course-title">Learn HTML:5: Enroll now and embark on a transformative journey towards becoming a professional Web developer!</h2>
+               
+              </div>
+
+              <div class="course-card">
+                <img src="https://squareboat.com/storage/photos/22/What%20is%20CSS3.png" alt="">
+                <div class="category">
+                  <div class="subject">
+                    <a href="{{ url_for('scourse', category='CSS') }}"><h3>CSS</h3></a>
+                  </div>
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpSKk3vOngjiDjSNJYDn_El330rfpqu29IOQ&usqp=CAU" alt="">
+                </div>
+                <h2 class="course-title">Learn Css: Enroll now and embark on a transformative journey towards becoming a professional front end developer!</h2>
+               
+              </div>
+
+              <div class="course-card">
+                <img src="https://www.pragimtech.com/wp-content/uploads/2019/03/java-script.jpg" alt="">
+                <div class="category">
+                  <div class="subject">
+                    <a href="{{ url_for('scourse', category='JavaScript') }}"><h3>JavaScript</h3></a>
+                  </div>
+                  <img src="https://images.prismic.io/turing/652ebc99fbd9a45bcec8182d_Best_Online_Resources_to_Learn_Java_Script_for_Free_29680a8105.webp?auto=format,compress" alt="">
+                </div>
+                <h2 class="course-title">Learn JavaScript: Enroll now and embark on a transformative journey towards becoming a professional js developer!</h2>
+               
+              </div>
+
+              <div class="course-card">
+                <img src="https://developers.redhat.com/sites/default/files/styles/article_feature/public/Python-01%20%282%29.png?itok=TEVIQBQo" alt="">
+                <div class="category">
+                  <div class="subject">
+                    <a href="{{ url_for('scourse', category='Python') }}"><h3>Python</h3></a>
+                  </div>
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuYZY3M7IMFYKf9vaJ2OfRYAQmZ7dWLTnfKWFbdXvcADqRFvgAQxOXKMMKY-SV1q8WAPs&usqp=CAU" alt="">
+                </div>
+                <h2 class="course-title">Learn Python: Enroll now and embark on a transformative journey towards becoming a professional python developer!</h2>
+                
+              </div>
+
+              <div class="course-card">
+                <img src="https://www.webskittersacademy.in/wp-content/uploads/2016/01/Java-As-A-Programming-Language.png" alt="">
+                <div class="category">
+                  <div class="subject">
+                    <a href="{{ url_for('scourse', category='Java') }}"><h3>Java</h3></a>
+                  </div>
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf-y5NwhmfpryopJ9q1crV0-pYheoofsksiiU3k_Z7AMiNmjEb9m-3UcOI0IYT4lbO2A8&usqp=CAU" alt="">
+                </div>
+                <h2 class="course-title">Learn Java: Enroll now and embark on a transformative journey towards becoming a professional java developer!</h2>
+                
+              </div>
+
+            </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="categories" id="categories">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              
+        <header class="section-header">
+          <h1>Brouse Courses</h1>
+          <p>In our Learning Management System (LMS), you have the opportunity to embark on a journey of exploration and discovery by browsing through a vast array of courses tailored to your interests, goals, and aspirations.</p>
+        </header>
+        <div class="categories-contents">
+          <div class="category-item">
+            <div class="category-icon">
+              <i class="fa-solid fa-palette"></i>
+            </div>
+            <div class="category-desc">
+              <h3>Designing</h3>
+              <p>Designing is the creative process of conceptualizing and crafting solutions to meet specific needs or solve problems. It encompasses a wide range of disciplines, including graphic design, industrial design, user experience (UX) design, and more. Designers employ various techniques and tools to translate ideas into tangible products, interfaces, or experiences that are functional, aesthetically pleasing, and user-friendly.</p>
+            </div>
+          </div>
+
+          <div class="category-item">
+            <div class="category-icon">
+              <i class="fa-solid fa-code"></i>
+            </div>
+            <div class="category-desc">
+              <h3>Frontend Development</h3>
+              <p>Front-end development involves the creation and implementation of the user interface and user experience (UI/UX) components of a website or web application. Front-end developers use languages like HTML, CSS, and JavaScript to build the visual elements that users interact with directly in their web browsers. This includes designing layouts, styling elements, and adding interactive features such as buttons, forms, and animations. </p>
+            </div>
+          </div>
+
+          <div class="category-item">
+            <div class="category-icon">
+              <i class="fa-solid fa-bullhorn"></i>
+            </div>
+            <div class="category-desc">
+              <h3>Back end Development</h3>
+              <p>Back-end developers are responsible for implementing security measures to protect sensitive data, optimizing performance to ensure fast response times, and scaling applications to handle increasing traffic and workload. They also collaborate with front-end developers and designers to integrate the back-end functionality with the user interface and ensure a seamless user experience.</p>
+            </div>
+          </div>
+
+       
+        </div>
+        
+      </div>
+    </div>
+  </div>
+      </section>
+       
+    <section class="instructor" id="instructor">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+          <div class="instrutor-container">
+            <h2>Become an instructor with LMS Platform</h2>
+            <p>Are you passionate about sharing your expertise, inspiring others, and making a positive impact on the world through education.</p>
+           
+          </div>
+              </div>
+            </div>
+          </div>
+    </section>
+       
+      <section class="footer" id="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="footer-contents">
+                <div class="footer-col footer-col-1">
+                  <div class="col-title">
+                    <h1><span>LMS</span></h1><br><p>Learning Management System</p> 
+                  </div>
+                  <div class="col-contents">
+                    <p>
+                      Learning Management Systems (LMS) are software applications designed to streamline the administration, delivery, and tracking of educational courses or training programs. They serve as centralized platforms where instructors can create, manage, and deliver digital learning content, and where learners can access resources, participate in activities, and track their progress.
+                  </p>
+                  
+                  </div>
+                </div>
+
+                <div class="footer-col footer-col-2">
+                  <div class="col-title">
+                    <h3>Contact</h3>
+                  </div>
+                  <div class="col-contents">
+                    <div class="contact-row">
+                      <span>Address</span>
+                      <span>1234 Street, Vijayawada, India</span>
+                    </div>
+
+                    <div class="contact-row">
+                      <span>Phone</span>
+                      <span>+91 9121461636</span>
+                    </div>
+                    
+                    <div class="contact-row">
+                      <span>Website</span>
+                      <span>LMS.com</span>
+                    </div>
+
+                    <div class="contact-row">
+                      <span>Email</span>
+                      <span>9121imran@gmail.com</span>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="footer-col footer-col-3">
+                  <div class="col-title">
+                    <h3>Quick Links</h3>
+                  </div>
+
+                  <div class="col-contents">
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#courses">Courses</a>
+                    <a href="#categories">Categories</a>
+                    <a href="#testimonials">Testimonials</a>
+                  </div>
+                </div>
+
+                <div class="footer-col footer-col-4">
+                  
+                </div>
+              </div>
+
+              <div class="copy-rights">
+                <p> Created By <b> (Imran, Bhavani) </b> All Rights Reserved</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+        <!-- footer section ends -->
+
+    
+      <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   
+</body>
+</html>
